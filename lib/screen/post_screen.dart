@@ -62,8 +62,7 @@ class _PostScreenState extends State<PostScreen> {
         controller: _scrollController,
         itemCount: _posts.length,
         itemBuilder: (context, index) {
-          final postIndex = (index ~/ 2);
-          final post = _posts[postIndex];
+          final post = _posts[index];
           return Column(
             children: [
               ListTile(
