@@ -62,32 +62,15 @@ class _PostScreenState extends State<PostScreen> {
         controller: _scrollController,
         itemCount: _posts.length,
         itemBuilder: (context, index) {
-          if (index % 2 == 0) {
-            // Calculate the page number for the current index
-            final pageNumber = (index ~/ 2) + 1;
-            return ListTile(
-              title: Text('Start of Page $pageNumber'),
-              tileColor: Colors.grey[200],
-              dense: true,
-            );
-          }
-
           final postIndex = (index ~/ 2);
           final post = _posts[postIndex];
           return Column(
             children: [
               ListTile(
-                leading: Column(
-                  children: [
-                    Text(post['userId'].toString()),
-                    const SizedBox(height: 5),
-                    Text(post['id'].toString())
-                  ],
-                ),
+                leading: CircleAvatar(child: Text(post['id'].toString())),
                 title: Text(post['title']),
                 subtitle: Text(post['body']),
               ),
-              const Divider(),
             ],
           );
         },
