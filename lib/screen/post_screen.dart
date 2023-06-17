@@ -9,7 +9,7 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
-  final PostsRepository _postsRepository = PostsRepository();
+  final PostsAPI _postsAPI = PostsAPI();
   final ScrollController _scrollController = ScrollController();
   final List<dynamic> _posts = [];
   bool _isFetching = false;
@@ -34,7 +34,7 @@ class _PostScreenState extends State<PostScreen> {
       _isFetching = true;
     });
 
-    final fetchedPosts = await _postsRepository.fetchPosts();
+    final fetchedPosts = await _postsAPI.fetchPosts();
 
     setState(() {
       _posts.addAll(fetchedPosts);
