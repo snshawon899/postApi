@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class PostsAPI {
   Future<List<dynamic>> fetchPosts() async {
-    final url = 'https://jsonplaceholder.typicode.com/posts?_page=1&_limit=10';
+    final url = 'https://jsonplaceholder.typicode.com/posts?_page=1&_limit=5';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
